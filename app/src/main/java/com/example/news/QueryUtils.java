@@ -29,7 +29,7 @@ public class QueryUtils {
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
-            if(urlConnection.getResponseCode()!=200)return null;
+            if(urlConnection.getResponseCode()!=200) return null;
             // Read the input stream into a String
             InputStream inputStream = urlConnection.getInputStream();
             // read from stream
@@ -46,6 +46,7 @@ public class QueryUtils {
             // read from stream/////////////////////
         } catch (IOException e) {
             Log.e("MainActivity", "Error ", e);
+
             return null;
         } finally {
             if (urlConnection != null) urlConnection.disconnect();
@@ -62,7 +63,7 @@ public class QueryUtils {
     }
 
      public static List<News> extractDataFromJson (String jsonResponse,List<News> newsList) {
-
+        
          newsList = new ArrayList<>();
         try {
 
@@ -86,7 +87,7 @@ public class QueryUtils {
                 newsObject.setDate(date);
                 newsObject.setUrl(url);
                 newsObject.setPillarName(Pillar_name);
-                newsObject.setName(Name);
+                newsObject.setSectionName(Name);
                 newsList.add(newsObject);
             }
 

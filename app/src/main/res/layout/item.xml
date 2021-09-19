@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/cardview_light_background">
+    android:background="#C6F6F5F5">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -67,10 +67,10 @@
                 android:text="Date"
                 android:textColor="@color/black"
                 android:textFontWeight="@integer/material_motion_duration_long_1"
-                android:textSize="13dp" />
+                android:textSize="15dp" />
 
             <TextView
-                android:id="@+id/author"
+                android:id="@+id/SectionName"
                 android:layout_width="92dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
@@ -78,9 +78,9 @@
                 android:layout_marginEnd="166dp"
                 android:layout_marginBottom="35dp"
                 android:fontFamily="cursive"
-                android:text="Author"
+                android:text="SectionName"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

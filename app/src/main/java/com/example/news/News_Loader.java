@@ -1,5 +1,7 @@
 package com.example.news;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 import com.example.news.QueryUtils;
 import androidx.annotation.NonNull;
@@ -14,8 +16,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 public class News_Loader extends AsyncTaskLoader<List<News>> {
-    private  String mUrl;
+
+    String mUrl;
     private static List<News> news  ;
 
     public static List<News> getNews() {
@@ -39,10 +44,10 @@ public class News_Loader extends AsyncTaskLoader<List<News>> {
     @Nullable
     @Override
     public List<News> loadInBackground() {
-      //  if (mUrl==null) return null;
+        if (mUrl==null) return null;
+
         String jsonResponse=  QueryUtils.MakeHTTPRequest(this.mUrl);
-        ///getLoaderManager().initLoader(0,null,this).forceLoad();
-       //QueryUtils.extractDataFromJson(jsonResponse);
+
         return QueryUtils.extractDataFromJson(jsonResponse,news);
     }
 }

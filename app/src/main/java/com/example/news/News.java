@@ -8,14 +8,14 @@ public class News {
     String url;
     String date;
     String pillarName;
-    String Name;
+    String SectionName;
 
-    public String getName() {
-        return Name;
+    public String getSectionName() {
+        return SectionName;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setSectionName(String name) {
+        SectionName = name;
     }
 
     public String getSectionID() {
