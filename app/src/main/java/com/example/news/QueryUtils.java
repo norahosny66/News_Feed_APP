@@ -24,7 +24,6 @@ public class QueryUtils {
         String jsonStr = null;
         String line;
         try {
-
             URL url = new URL(url_based_on_category);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
@@ -35,18 +34,15 @@ public class QueryUtils {
             // read from stream
             StringBuilder buffer = new StringBuilder();
             if (inputStream == null) return null;
-
             reader = new BufferedReader(new InputStreamReader(inputStream));
             while ((line = reader.readLine()) != null) {
                 buffer.append(line);
             }
-
             if (buffer.length() == 0) return null;
             jsonStr = buffer.toString();// json response
             // read from stream/////////////////////
         } catch (IOException e) {
             Log.e("MainActivity", "Error ", e);
-
             return null;
         } finally {
             if (urlConnection != null) urlConnection.disconnect();
@@ -63,10 +59,8 @@ public class QueryUtils {
     }
 
      public static List<News> extractDataFromJson (String jsonResponse,List<News> newsList) {
-        
-         newsList = new ArrayList<>();
-        try {
 
+        try {
             JSONObject json = new JSONObject(jsonResponse);
             JSONObject response = json.getJSONObject("response");
             JSONArray results = response.getJSONArray("results");
@@ -90,7 +84,6 @@ public class QueryUtils {
                 newsObject.setSectionName(Name);
                 newsList.add(newsObject);
             }
-
 
         } catch (JSONException e) {
             e.printStackTrace();

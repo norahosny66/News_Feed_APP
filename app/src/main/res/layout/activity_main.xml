@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecycleView"
         android:layout_width="399dp"
         android:layout_height="550dp"
-        android:background="#dcdcdc"
+        android:background="@color/gloss"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,6 +80,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/RecycleView"
         app:layout_constraintVertical_bias="0.43" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

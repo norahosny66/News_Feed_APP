@@ -47,7 +47,7 @@ public class News_Loader extends AsyncTaskLoader<List<News>> {
         if (mUrl==null) return null;
 
         String jsonResponse=  QueryUtils.MakeHTTPRequest(this.mUrl);
-
+        news=  new ArrayList<>();
         return QueryUtils.extractDataFromJson(jsonResponse,news);
     }
 }

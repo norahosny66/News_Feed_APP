@@ -57,5 +57,4 @@ public class News {
         this.title = title;
     }
 
-
 }
