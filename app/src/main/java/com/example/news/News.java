@@ -9,6 +9,15 @@ public class News {
     String date;
     String pillarName;
     String SectionName;
+    String Author;
+
+    public String getAuthor() {
+        return Author;
+    }
+
+    public void setAuthor(String author) {
+        Author = author;
+    }
 
     public String getSectionName() {
         return SectionName;

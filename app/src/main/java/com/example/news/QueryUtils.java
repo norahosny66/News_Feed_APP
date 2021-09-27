@@ -74,6 +74,17 @@ public class QueryUtils {
                 String url = currentNews.getString("webUrl");
                 String Pillar_name = currentNews.getString("pillarName");
                 String Name = currentNews.getString("sectionName");
+                String author = null;
+               // if (currentNews.has("tags")) {
+
+                    JSONArray tagsArray = currentNews.getJSONArray("tags");
+                  //  if (tagsArray.length() != 0) {
+                      JSONObject Tags_Object = tagsArray.getJSONObject(0);
+                       String firstName = Tags_Object.getString("firstName");
+                        String lastName = Tags_Object.getString("lastName");
+                        author = "By: "+firstName+" "+lastName;
+                   // }
+               // }
 
                 News newsObject = new News();
                 newsObject.setSectionID(section);
@@ -82,6 +93,7 @@ public class QueryUtils {
                 newsObject.setUrl(url);
                 newsObject.setPillarName(Pillar_name);
                 newsObject.setSectionName(Name);
+                newsObject.setAuthor(author);
                 newsList.add(newsObject);
             }
 

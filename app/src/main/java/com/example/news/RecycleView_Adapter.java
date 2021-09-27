@@ -35,7 +35,14 @@ public class RecycleView_Adapter extends RecyclerView.Adapter<RecycleView_Adapte
         holder.title.setText(news.getTitle());
         holder.SectionName.setText(news.getSectionName());
         holder.date.setText(news.getDate());
-         url = news.getUrl();
+        if (news.getAuthor() == null) {
+            holder.Author.setVisibility(View.GONE);
+        } else {
+            holder.Author.setVisibility(View.VISIBLE);
+            holder.Author.setText(news.getAuthor());
+        }
+
+        url = news.getUrl();
          if(news.getPillarName().equals("News")&&!news.getSectionID().equals("global-development"))
             holder.imv.setImageResource(Constants.programImages[0]);
         else if(news.getPillarName().equals("Sport"))
@@ -55,7 +62,7 @@ public class RecycleView_Adapter extends RecyclerView.Adapter<RecycleView_Adapte
         return items.size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
-       public TextView title,SectionName,date;
+       public TextView title,SectionName,date,Author;
        public ImageView imv;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,6 +70,7 @@ public class RecycleView_Adapter extends RecyclerView.Adapter<RecycleView_Adapte
             date=itemView.findViewById(R.id.date_item);
             imv=itemView.findViewById(R.id.imageView);
             SectionName=itemView.findViewById(R.id.SectionName);
+            Author=itemView.findViewById(R.id.Author);
             itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
